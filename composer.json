@@ -1,11 +1,14 @@
 {
-    "name": "yanhaoli/twill-devtool",
+    "name": "yanhaoli/twill-devtools",
     "description": "The tools for developing a Twill app",
+    "keywords": ["twill", "debug", "devtools"],
     "authors": [
         {
             "name": "Yanhao Li",
             "email": "hi@yanhaoli.com"
         }
     ],
-    "require": {}
+    "require": {
+        "area17/twill": "~1.2.0|dev-master"
+    }
 }
