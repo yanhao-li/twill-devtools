@@ -1,0 +1,11 @@
+{
+    "name": "yanhaoli/twill-devtool",
+    "description": "The tools for developing a Twill app",
+    "authors": [
+        {
+            "name": "Yanhao Li",
+            "email": "hi@yanhaoli.com"
+        }
+    ],
+    "require": {}
+}
