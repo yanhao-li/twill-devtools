@@ -2,6 +2,7 @@
     "name": "yanhaoli/twill-devtools",
     "description": "The tools for developing a Twill app",
     "keywords": ["twill", "debug", "devtools"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Yanhao Li",
@@ -15,6 +16,16 @@
     "autoload": {
         "psr-4": {
             "Yanhaoli\\TwillDevtools\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Yanhaoli\\TwillDevtools\\TwillDevtoolsServiceProvider"
+            ],
+            "aliases": {
+                "TwillDevtools": "Yanhaoli\\TwillDevtools\\Facade"
+            }
         }
     }
 }
