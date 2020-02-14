@@ -2,6 +2,7 @@
 
 namespace Yanhaoli\TwillDevtools\Http\Controllers;
 
+use A17\Twill\Models\User;
 use Illuminate\Routing\Controller;
 
 class HomeController extends Controller
@@ -13,6 +14,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('twill-devtools::layout');
+        return view('twill-devtools::layout', [
+            'users' => User::all()
+        ]);
     }
 }
