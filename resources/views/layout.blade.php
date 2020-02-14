@@ -8,6 +8,7 @@
         <title>Twill Devtools</title>
     </head>
     <body>
+        <div id="root"></div>
         <h1>Twill Devtools</h1>
 
         <h2>Current users:</h2>
@@ -35,23 +36,18 @@
 
         <h2>All Routes:</h2>
         <ul>
-            <li>Enim bibendum faucibus fringilla nascetur dolor netus</li>
-            <li>Mi venenatis fermentum conubia vehicula blandit condimentum</li>
-            <li>Mi cubilia lacinia</li>
+            @foreach($routes as $route)
+                <li>
+                    {{ $route['name'] }}
+                </li>
+            @endforeach
         </ul>
 
         <h2>Navigation</h2>
         <ul>
-            <li>
-                <h3>Home</h3>
-            </li>
-            <li>
-                <h3>Projects</h3>
-                <ul>
-                    <li>Landing</li>
-                    <li>Project Types</li>
-                </ul>
-            </li>
+            @foreach($navigations as $navigation)
+                {{ $navigation['title'] }}
+            @endforeach
         </ul>
     </body>
 </html>
