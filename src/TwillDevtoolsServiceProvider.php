@@ -28,8 +28,9 @@ class TwillDevtoolsServiceProvider extends ServiceProvider
     private function registerRoutes()
     {
         Route::group($this->routeConfiguration(), function () {
-            $this->loadRoutesFrom(__DIR__.'/Http/routes.php');
-        });
+                $this->loadRoutesFrom(__DIR__.'/Http/routes.php');
+            }
+        );
     }
 
     /**
@@ -39,11 +40,26 @@ class TwillDevtoolsServiceProvider extends ServiceProvider
      */
     private function routeConfiguration()
     {
+        $supportSubdomainRouting = config('twill.support_subdomain_admin_routing', false);
+
+        $middlewares = [
+            'web',
+            'twill_auth:twill_users'
+        ];
+
+        $domain = config('twill.admin_app_url');
+
+        if ($supportSubdomainRouting) {
+            array_unshift($middlewares, 'supportSubdomainRouting');
+            $domain = config('twill.admin_app_subdomain', 'admin') . '.{subdomain}.' . config('app.url');
+        }
+
         return [
-            'domain' => null,
+            'domain' => $domain,
             'namespace' => 'Yanhaoli\TwillDevtools\Http\Controllers',
+            'as' => 'admin.',
             'prefix' => 'twill-devtools',
-            'middleware' => null,
+            'middleware' => $middlewares,
         ];
     }
 }

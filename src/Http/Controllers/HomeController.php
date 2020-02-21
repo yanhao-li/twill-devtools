@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Support\Str;
 use Illuminate\Routing\Route;
 use Illuminate\Routing\Router;
-use Illuminate\Routing\Controller;
+use A17\Twill\Http\Controllers\Admin\Controller;
 use Yanhaoli\TwillDevtools\Repositories\RouteRepository;
 use Yanhaoli\TwillDevtools\Repositories\NavigationRepository;
 use A17\Twill\Repositories\UserRepository;
@@ -21,6 +21,7 @@ class HomeController extends Controller
         UserRepository $userRepository,
         NavigationRepository $navigationRepository
     ) {
+        parent::__construct();
         $this->routeRepository = $routeRepository;
         $this->userRepository = $userRepository;
         $this->navigationRepository = $navigationRepository;

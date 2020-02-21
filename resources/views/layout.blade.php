@@ -45,9 +45,9 @@
 
         <h2>Navigation</h2>
         <ul>
-            @foreach($navigations as $navigation)
-                {{ $navigation['title'] }}
-            @endforeach
+            {{-- @foreach($navigations as $navigation) --}}
+                {{-- {{ $navigation['title'] }} --}}
+            {{-- @endforeach --}}
         </ul>
     </body>
 </html>
