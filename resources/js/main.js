@@ -1,9 +1,8 @@
 import Vue from 'vue'
+import TwillDevtools from './TwillDevtools.vue'
 
-window.Vue = require('vue');
-
-Vue.component('twill-devtools', require('./TwillDevtools.vue').default)
-
-const app = new Vue({
+new Vue({
   el: '#twill-devtools',
-});
+  template: '<TwillDevtools />',
+  components: { TwillDevtools }
+})

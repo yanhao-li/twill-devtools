@@ -60,10 +60,8 @@ class InjectDevtools
     private function modifyResponse($request, $response)
     {
         $content = $response->getContent();
-
-        // dd(mix('/dish/js/main.js'));
-        // $injectedBody = '<script type="text/javascript" src="' . mix('/dish/js/main.js') . '"></script>';
-        $injectedBody = '';
+        $jsPath = route('admin.twill-devtools.assets.js');
+        $injectedBody = '<script type="text/javascript" src="' . $jsPath . '"></script>';
         $pos = strripos($content, '</body>');
 
         if (false !== $pos) {
@@ -73,7 +71,6 @@ class InjectDevtools
         }
 
         $response->setContent($content);
-        // dd($response);
         return $response;
     }
 }

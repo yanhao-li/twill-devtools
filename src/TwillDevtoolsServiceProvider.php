@@ -57,8 +57,7 @@ class TwillDevtoolsServiceProvider extends ServiceProvider
         $supportSubdomainRouting = config('twill.support_subdomain_admin_routing', false);
 
         $middlewares = [
-            'web',
-            'twill_auth:twill_users'
+            'web'
         ];
 
         $domain = config('twill.admin_app_url');
