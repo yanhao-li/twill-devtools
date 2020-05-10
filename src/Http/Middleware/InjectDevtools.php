@@ -61,7 +61,7 @@ class InjectDevtools
     {
         $content = $response->getContent();
         $jsPath = route('admin.twill-devtools.assets.js');
-        $injectedBody = '<script type="text/javascript" src="' . $jsPath . '"></script>';
+        $injectedBody = '<div id="twill-devtools"></div><script type="text/javascript" src="' . $jsPath . '"></script>';
         $pos = strripos($content, '</body>');
 
         if (false !== $pos) {
