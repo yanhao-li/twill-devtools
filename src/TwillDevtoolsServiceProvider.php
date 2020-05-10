@@ -2,6 +2,8 @@
 
 namespace Yanhaoli\TwillDevtools;
 
+use Illuminate\Contracts\Http\Kernel;
+use Yanhaoli\TwillDevtools\Http\Middleware\InjectDevtools;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
@@ -10,6 +12,7 @@ class TwillDevtoolsServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerRoutes();
+        $this->registerMiddleware(InjectDevtools::class);
         $this->loadViewsFrom(
             __DIR__.'/../resources/views', 'twill-devtools'
         );
@@ -31,6 +34,17 @@ class TwillDevtoolsServiceProvider extends ServiceProvider
                 $this->loadRoutesFrom(__DIR__.'/Http/routes.php');
             }
         );
+    }
+
+    /**
+     * Register the Devtools Middleware
+     *
+     * @param  string $middleware
+     */
+    protected function registerMiddleware($middleware)
+    {
+        $kernel = $this->app[Kernel::class];
+        $kernel->pushMiddleware($middleware);
     }
 
     /**
