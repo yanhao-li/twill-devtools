@@ -66,8 +66,6 @@ class InjectDevtools
 
         if (false !== $pos) {
             $content = substr($content, 0, $pos) . $injectedBody . substr($content, $pos);
-        } else {
-            $content = $content . $injectedBody;
         }
 
         $response->setContent($content);
